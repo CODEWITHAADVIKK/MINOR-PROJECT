@@ -20,9 +20,14 @@ RAILCAST AI (RAILYATRA) is an advanced AI-driven railway ETA forecasting and ope
 
 ## 🚀 Quick Start
 
+### Prerequisites
+- Python 3.10+
+- Node.js 18+
+
 ### 1. Backend Setup (FastAPI + ML Engine)
 ```bash
 cd backend
+pip install -r requirements.txt
 python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 - **API Swagger Docs:** `http://localhost:8000/docs`
@@ -31,14 +36,17 @@ python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ### 2. Frontend Setup (React + Vite)
 ```bash
 cd frontend
+cp .env.example .env        # configures API URL to http://localhost:8000/api/v1
 npm install
 npm run dev
 ```
 - **Live Dashboard:** `http://localhost:5173/`
+- The frontend shows a yellow **DEMO MODE** banner if the backend is unreachable.
 
 ### 3. Run Tests
 ```bash
-python -m pytest backend/tests/test_all.py -v
+cd backend
+python -m pytest tests/test_all.py -v
 ```
 
 ---
